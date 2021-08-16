@@ -9,3 +9,8 @@ all:
 clean:
 	rm -f $(TGT)
 
+clr:
+	clear
+
+clear: clr all
+
