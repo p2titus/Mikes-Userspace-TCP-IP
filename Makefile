@@ -1,6 +1,6 @@
 CC = gcc
 FLAGS = O3
-FILES = *.c
+FILES = src/*.c
 TGT = *.o
 
 all:
