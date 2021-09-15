@@ -14,11 +14,23 @@
 */
 
 
-int read_in(int s_raw) {
-	return 0;
-}
+int read_in(int s_raw, unsigned short *buf) {
 
-int physical() {
+	if(sendto(sd, buf, ip->iph_len, 0, (struct sockaddr *)&sin, sizeof(sin)) < 0) {
+		exit(-1);
+	}
+
+// Verify
+
+{
+
+   perror("sendto() error");
+
+   exit(-1);
+
+}}
+
+int physical(unsigned short *buf) {
 	// inefficiencies abound atm
 	const int s = socket(AF_PACKET, SOCK_RAW, htons(ETH_P_ALL));
 	if(s < 0) {
